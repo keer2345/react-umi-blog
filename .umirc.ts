@@ -1,5 +1,5 @@
-import routes from './config/routes';
-import { defineConfig } from 'umi';
+import routes from './config/routes'
+import { defineConfig } from 'umi'
 
 export default defineConfig({
   nodeModulesTransform: {
@@ -7,7 +7,7 @@ export default defineConfig({
   },
   history: { type: 'hash' },
   hash: true,
-  title: 'Keer Blog',
+  title: 'Umi Blog',
   routes: routes,
   define: {
     API_PREFIX: '',
@@ -24,4 +24,4 @@ export default defineConfig({
     ],
   ],
   fastRefresh: {},
-});
+})

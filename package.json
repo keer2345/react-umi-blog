@@ -11,15 +11,34 @@
     "test:coverage": "umi-test --coverage"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
-    "*.{js,jsx,less,md,json}": [
-      "prettier --write"
+    "*.{less,md,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
     ],
     "*.ts?(x)": [
-      "prettier --parser=typescript --write"
+      "eslint --fix",
+      "prettier --parser=typescript --write",
+      "git add"
+    ],
+    "*.less": [
+      "stylelint --syntax less",
+      "prettier --write",
+      "git add"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_module/cz-conventional-changelog"
+    }
   },
   "dependencies": {
     "@ant-design/pro-layout": "^6.5.0",
@@ -29,14 +48,34 @@
     "umi": "^3.5.21"
   },
   "devDependencies": {
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.5.21",
     "babel-plugin-import": "^1.13.3",
+    "commitizen": "^4.2.4",
     "cross-env": "^7.0.3",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-config-umi": "^1.6.0",
+    "eslint-plugin-flowtype": "^8.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-standard": "^5.0.0",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",
+    "stylelint": "^14.5.3",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0",
     "typescript": "^4.1.2",
     "yorkie": "^2.0.0"
   }

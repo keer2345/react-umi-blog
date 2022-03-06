@@ -1,0 +1,10 @@
+.umirc.js
+.eslintrc.js
+*.js
+package-lock.json
+
+/logs
+/public
+/node_modules
+/dist
+.DS_Store
