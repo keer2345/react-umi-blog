@@ -5,6 +5,7 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  // history: { type: 'browser' },
   history: { type: 'hash' },
   hash: true,
   title: 'Umi Blog',

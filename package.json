@@ -15,7 +15,7 @@
     "commit-msg": "commitlint -e $GIT_PARAMS"
   },
   "lint-staged": {
-    "*.{less,md,json}": [
+    "*.{md,json}": [
       "prettier --write",
       "git add"
     ],
@@ -30,7 +30,6 @@
       "git add"
     ],
     "*.less": [
-      "stylelint --syntax less",
       "prettier --write",
       "git add"
     ]
@@ -69,6 +68,8 @@
     "eslint-plugin-standard": "^5.0.0",
     "husky": "^7.0.4",
     "lint-staged": "^10.0.7",
+    "postcss": "^8.4.12",
+    "postcss-scss": "^4.0.3",
     "prettier": "^2.2.0",
     "stylelint": "^14.5.3",
     "stylelint-config-prettier": "^9.0.3",
