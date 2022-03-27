@@ -1,20 +1,28 @@
 import styles from './index.less'
 import { Form, Input, Checkbox, Button } from 'antd'
 import request from '@/utils/request'
+import api from '@/services'
+
+const { login } = api
 
 const Login = () => {
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     const params = { ...values, type: 'account', from: 'web' }
-    request({
+    if (params.autoLogin === undefined) {
+      params.autoLogin = false
+    }
+    // const res = await login(params)
+    const res = await request({
       url: '/api/account/login',
       method: 'post',
       data: params,
     })
-    console.log('Success:', params)
+
+    console.log('Success:', res)
   }
 
   const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo)
+    console.log('Failed:', errorInfo.data)
   }
   return (
     // <div className="height-full flex flex-center align-center">

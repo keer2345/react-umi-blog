@@ -1,6 +1,5 @@
 import { IConfig } from 'umi'
 
-// https://www.cnblogs.com/sexintercourse/p/13831206.html
 const config: IConfig = {
   define: {
     API_PREFIX: 'http://localhost:9001',
